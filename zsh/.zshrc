@@ -34,9 +34,13 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+#Substring history search
 autoload -U fizsh-history-substring-search
 zle -N history-substring-search-up
 zle -N history-substring-search-down
 
 bindkey '\e[A' history-substring-search-up
 bindkey '\e[B' history-substring-search-down
+
+#Set compose key to type accented letters
+setxkbmap -option compose:ralt
