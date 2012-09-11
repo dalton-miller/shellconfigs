@@ -1,46 +1,21 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="geoffgarside"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-#Substring history search
-autoload -U fizsh-history-substring-search
-zle -N history-substring-search-up
-zle -N history-substring-search-down
-
-bindkey '\e[A' history-substring-search-up
-bindkey '\e[B' history-substring-search-down
+source ~/.oh-my-zsh/lib/theme-and-appearance.zsh
+source ~/.oh-my-zsh/themes/geoffgarside.zsh-theme
+source ~/.oh-my-zsh/lib/zsh-history-substring-search.zsh
+source ~/.oh-my-zsh/lib/history.zsh
+source ~/.oh-my-zsh/lib/grep.zsh
+#source ~/.oh-my-zsh/lib/tab-from-man.zsh
+source ~/.oh-my-zsh/lib/termsupport.zsh
 
 #Set compose key to type accented letters
 setxkbmap -option compose:ralt
+
+#Export some stuff
+export PATH=${PATH}:/usr/sbin:/sbin:/usr/local/sbin:/opt/android-sdk/platform-tools
+export EDITOR=nano
+
+#Delete key
+bindkey '^?' backward-delete-char
+bindkey "^[[3~" delete-char
+bindkey "^[3;5~" delete-char
+bindkey "\e[3~" delete-char
+
